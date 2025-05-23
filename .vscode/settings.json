@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3b108aa7-79d2-4743-ba58-d326cded15c4/resourceGroups/Hackathon_QueryCrushers/providers/Microsoft.Web/sites/QueryCrushers-WebApp",
+    "appService.deploySubpath": "app"
+}
