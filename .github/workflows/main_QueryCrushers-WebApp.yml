@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://querycrushersacr.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_e29c46cff5964708a53ac100639e125b }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_419e04e1dcec43b6aac1ba45fb3af2b9 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_ce3d30c599954408bc9436d2709ce706 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_f7844895ca6041369da1e6ed5c18b690 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: querycrushersacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_e29c46cff5964708a53ac100639e125b }}/QueryCrushers:${{ github.sha }}
+        tags: querycrushersacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_ce3d30c599954408bc9436d2709ce706 }}/latest:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'QueryCrushers-WebApp'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_17f5e5e1a9e345d394e39ea19ecda956 }}
-        images: 'querycrushersacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_e29c46cff5964708a53ac100639e125b }}/QueryCrushers:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1ce0eeaa778f4d8da2c0a40ac21394d2 }}
+        images: 'querycrushersacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_ce3d30c599954408bc9436d2709ce706 }}/latest:${{ github.sha }}'
